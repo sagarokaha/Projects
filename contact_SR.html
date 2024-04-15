@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <style>
+        /* Resetting default styles and setting font family for the whole page */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Styling for the header section */
+        header {
+            padding: 10px;
+            background-color: #2F404E;
+            color: white;
+            text-align: center;
+        }
+
+        /* Styling for the main heading */
+        h1{
+            font-size: 45px;
+        }
+
+        /* Styling for the form */
+        form {
+            margin: 20px 250px 20px 250px;
+            color: #73797e;
+        }
+
+        /* Styling for the asterisk indicating required fields */
+        .ast {
+            color: red;
+        }
+
+        /* Styling for input fields */
+        input, select, textarea {
+            border: none; /* Remove default border */
+            border-bottom: 1px solid #ccc; /* Add bottom border */
+            width: 100%; /* Adjusted width to fill the input box column */
+            padding-bottom: 10px;  /* Add padding to bottom */
+            margin-bottom: 10px; /* Add margin to bottom */
+        }
+
+        /* Reverting default radio button styles */
+        input[type="radio"]{
+            all: revert;
+        }
+
+        /* Styling for form rows */
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start; /* Align items to the start of the cross axis */
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        /* Styling for labels */
+        .label {
+            text-align: left;
+            width: 30%; 
+        }
+
+        /* Styling for input boxes */
+        .input-box {
+            width: 60%; 
+            text-align: left;
+        }
+
+        /* Styling for submit button */
+        input[type="submit"]{
+            background-color: #21A376;
+            border-radius: 50px;
+            border: none;
+            width: 10%;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Styling for address inputs */
+        .address-inputs{
+            font-size: smaller;
+            color: #627c92;
+            line-height: 30px;
+        }
+
+        /* Styling for elements with green color */
+        .greeny{
+            color: #21A376;
+        } 
+        
+        /* Styling for elements with half width */
+        .half{
+            display: inline-block; width:49.5%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Client Details</h1>
+        <p>Enter the details of all incoming clients.</p>
+    </header><br>
+
+    <!-- Form Section -->
+    <form method="POST" action="https://formspree.io/f/mgegpqlj" enctype="multipart/form-data">
+        <!-- Client Name Field -->
+        <div class="form-row">
+            <div class="label"><label for="ClientName">Client Name <span class="ast">*</span></label></div>
+            <div class="input-box"><input type="text" id="ClientName" name="ClientName" required></div>
+        </div>
+        
+        <!-- Company Field -->
+        <div class="form-row">
+            <div class="label"><label for="Company">Company <span class="ast">*</span></label></div>
+            <div class="input-box"><input type="text" id="Company" name="Company" required></div>
+        </div>
+
+        <!-- Title Field -->
+        <div class="form-row">
+            <div class="label"><label for="Title">Title</label></div>
+            <div class="input-box"><input type="text" id="Title" name="Title"></div>
+        </div>
+
+        <!-- Department Field -->
+        <div class="form-row">
+            <div class="label"><label for="Department">Department <span class="ast">*</span></label></div>
+            <div class="input-box"> <select id="Department" name="Department" class="greeny" required>
+                <option value="-1" disabled selected> - Select - </option>
+                <option value="IT">IT</option>
+                <option value="Food">Food</option>
+                <option value="Security">Security</option>
+                <option value="Management">Management</option>
+            </select></div>
+        </div>
+
+        <!-- Preferred Contact Method Field -->
+        <div class="form-row">
+            <div class="label"><label for="ContactMethod">Preferred Contact Method <span class="ast">*</span></label></div>
+            <div class="input-box">
+                <input type="radio" id="bEmail" value="Email" name="contact" required>
+                <label for="bEmail" class="greeny">Email</label>
+                <input type="radio" id="bPhone" value="Phone" name="contact" required>
+                <label for="bPhone" class="greeny">Phone</label>
+            </div>
+        </div>
+
+
+        <!-- Email Field -->
+        <div class="form-row">
+            <div class="label"><label for="Email">Email</label></div>
+            <div class="input-box"><input type="email" id="Email" name="Email"></div>
+        </div>
+
+        <!-- Phone Field -->
+        <div class="form-row">
+            <div class="label"><label for="Phone">Phone</label></div>
+            <div class="input-box"><input type="tel" id="Phone" name="Phone"></div>
+        </div>
+
+        <!-- Company Address Field -->
+        <div class="form-row">
+            <div class="label"><label for="CompanyAddress">Company Address <span class="ast">*</span>:</label><br></div>
+            <div class="input-box"> <div class="address-inputs" required>
+                
+                <input type="text" id="StreetAddress" name="StreetAddress" placeholder="Enter your street address" required>
+                <label for="StreetAddress">Street Address</label>
+                <br><br>
+               
+                <input type="text" id="AddressLine2" name="AddressLine2" placeholder="Enter your Address" >
+                <label for="AddressLine2">Address Line 2</label>
+                <br><br>
+                
+                <div class="half">
+                    <input type="text" id="City" name="City" placeholder="Enter your City name" required>
+                    <label for="City">City</label>
+                </div>
+
+                <div class="half">
+                    <input type="text" id="State" name="State" placeholder="Enter your State" required>
+                    <label for="State">State/Region/Province</label>
+                </div>
+                
+                <br><br>
+                
+                <div class="half">
+                    <input type="text" id="PostalCode" name="PostalCode" placeholder="Enter your postal code" required>
+                    <label for="PostalCode">Postal/ZIP Code</label>
+                </div>
+
+                <div class="half">
+                    <select id="Country" name="Country" class="greeny" required>
+                        <option value="-1" disabled selected> - Select - </option>
+                        <option value="Canada">Canada</option>
+                        <option value="India">India</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="USA">USA</option>
+                    </select>
+                    <label for="Country">Country</label>
+                </div>
+                    
+                <br><br>
+            </div>
+        </div>
+
+        <!-- Company Website Field -->
+        <div class="form-row">
+            <div class="label"><label for="CompanyWebsite">Company Website <span class="ast">*</span></label></div>
+            <div class="input-box"><input type="url" id="CompanyWebsite" name="CompanyWebsite" required></div>
+        </div>
+
+        <!-- Company Logo Field -->
+        <div class="form-row">
+            <div class="label"><label for="CompanyLogo">Company Logo</label></div>
+            <div class="input-box"><input type="file" id="CompanyLogo" name="CompanyLogo"></div>
+        </div>
+
+        <!-- Working Hours Field -->
+        <div class="form-row">
+            <div class="label"><label for="WorkingHours">Working Hours <span class="ast">*</span></label></div>
+            <div class="input-box"><input type="number" id="WorkingHours" name="WorkingHours" required></div>
+        </div>
+
+        <!-- Working Days Field -->
+        <div class="form-row">
+            <div class="label"><label for="WorkingDays">Working Days <span class="ast">*</span></label></div>
+            <div class="input-box"> <input type="number" id="WorkingDays" name="WorkingDays" required></div>
+        </div>
+
+        <!-- Billing Cycle Field -->
+        <div class="form-row">
+            <div class="label"><label for="BillingCycle">Billing Cycle <span class="ast">*</span></label></div>
+            <div class="input-box"> <input type="text" id="BillingCycle" name="BillingCycle" required></div>
+        </div>
+
+        <!-- Additional Information Field -->
+        <div class="form-row">
+            <div class="label"><label for="AdditionalInfo">Additional Information</label></div>
+            <div class="input-box"><textarea id="AdditionalInfo" name="AdditionalInfo"></textarea></div>
+        </div>
+        
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
